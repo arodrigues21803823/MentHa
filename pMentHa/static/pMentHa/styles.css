@@ -308,7 +308,7 @@ input.pat[type=text], select {
     margin-left: 30px;
 }
 
-input[type=date], select {
+input.pat[type=date], select {
     width: 100%;
     padding: 8px 5px;
     margin: 8px 0;
@@ -699,6 +699,21 @@ iframe {
 }
 
 input.login_text[type=number], select {
+    background-color: #f6f6f6;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #f6f6f6;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px;
+}
+
+input.login_text[type=date], select {
     background-color: #f6f6f6;
     color: black;
     padding: 15px 32px;

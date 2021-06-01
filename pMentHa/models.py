@@ -18,6 +18,7 @@ class Contact(models.Model):
     email = models.EmailField()
     name = models.CharField(max_length=128)
     contact = models.IntegerField()
+    birth = models.DateField()
 
 
 class Option(models.Model):

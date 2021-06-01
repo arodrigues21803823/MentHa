@@ -29,7 +29,7 @@ def contact(request):
     if request.method == "POST":
         contact = Contact.objects.create(email=request.POST["email"],
                                          contact=request.POST["contact"],
-                                         name=request.POST["name"])
+                                         name=request.POST["name"], birth=request.POST["date"])
         contact.save()
         return render(request, 'pMentHa/index.html', {
         })

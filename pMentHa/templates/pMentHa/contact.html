@@ -17,9 +17,10 @@
                         <a href="">MentHaCOG</a>
                     </div>
                 </div>
-                <a href=""><i class="fa fa-fw fa-envelope"></i> Contactos</a>
+                <a class="active" href="{% url 'contact' %}"><i class="fa fa-fw fa-envelope"></i> Contactos</a>
+                <a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a>
                 <div class="top-right">
-                    <a class="active" href="{% url 'login_' %}"><i class="fas fa-fingerprint"></i> Login</a>
+                    <a  href="{% url 'login_' %}"><i class="fas fa-fingerprint"></i> Login</a>
                 </div>
             </div>
             <figure>
@@ -49,6 +50,9 @@
                         <label class="contact" for="fname">Contacto:</label>
                         <br>
                         <input class="login_text" type="number" id="contact" name="contact" placeholder="+351 9XX XXX XXX ">
+                        <label class="contact" for="date">Data de Nascimento:</label>
+                        <br>
+                        <input class="login_text" type="date" id="date" name="date">
                         <input class="but" type="submit" value="Enviar">
                     </form>
                 </div>
