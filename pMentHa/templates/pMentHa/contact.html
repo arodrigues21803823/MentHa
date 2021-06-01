@@ -37,18 +37,20 @@
         <main>
             <div class="wrapper">
                 <div id="formContent">
-                    <h4 class="activeH2"> Log In </h4>
-                    <a href="{% url 'register' %}"><h4 class="inactiveH2 underlineHover2">Registar </h4></a>
-                    <form action="{% url 'login_' %}" method="POST">
+                    <h4 class="activeH2"> Precisa de Ajuda? </h4>
+                    <form action="{% url 'contact' %}" method="POST">
                         {% csrf_token %}
-                        <input class="login_text" type="text" id="username" name="username" placeholder="username">
-                        <input class="login_password" type="password" id="password" name="password"
-                               placeholder="palavra-chave">
-                        <input class="but" type="submit" value="Entrar">
+                        <label class="contact" for="fname">E-mail:</label>
+                        <br>
+                        <input class="login_text" type="email" id="email" name="email" placeholder="example@example.pt">
+                        <label class="contact" for="fname">Nome:</label>
+                        <br>
+                        <input class="login_text" type="name" id="name" name="name" placeholder="João Maria">
+                        <label class="contact" for="fname">Contacto:</label>
+                        <br>
+                        <input class="login_text" type="number" id="contact" name="contact" placeholder="+351 9XX XXX XXX ">
+                        <input class="but" type="submit" value="Enviar">
                     </form>
-                    <div id="formFooter">
-                        <a class="underlineHover" href="{% url 'register' %}">Forgot Password?</a>
-                    </div>
                 </div>
             </div>
         </main>

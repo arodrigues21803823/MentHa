@@ -20,6 +20,25 @@ def mentha_care(request):
     })
 
 
+def about(request):
+    return render(request, "pMentHa/about.html", {
+    })
+
+
+def contact(request):
+    if request.method == "POST":
+        contact = Contact.objects.create(email=request.POST["email"],
+                                         contact=request.POST["contact"],
+                                         name=request.POST["name"])
+        contact.save()
+        return render(request, 'pMentHa/index.html', {
+        })
+
+    else:
+        return render(request, 'pMentHa/contact.html', {
+        })
+
+
 def login_(request):
     if request.method == "POST":
 
@@ -79,7 +98,6 @@ def register(request):
 
 
 def patientoverview(request):
-
     return render(request, "pMentHa/patientoverview-novo.html", {
         "patients": Patient.objects.all(),
         "tests": Test.objects.all(),

@@ -14,6 +14,12 @@ class Question(models.Model):
         return f"{self.text}"
 
 
+class Contact(models.Model):
+    email = models.EmailField()
+    name = models.CharField(max_length=128)
+    contact = models.IntegerField()
+
+
 class Option(models.Model):
     question = models.ForeignKey('Question', on_delete=models.SET_NULL, null=True)
     option = models.TextField(max_length=1000)

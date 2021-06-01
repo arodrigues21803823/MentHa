@@ -11,4 +11,5 @@ admin.site.register(Answer)
 admin.site.register(Resolution)
 admin.site.register(Option)
 admin.site.register(QuestionOrder)
+admin.site.register(Contact)
 
