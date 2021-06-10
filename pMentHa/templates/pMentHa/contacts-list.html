@@ -17,7 +17,11 @@
                         <a href="">MentHaCOG</a>
                     </div>
                 </div>
-                <a href="{% url 'contactList' %}"><i class="fa fa-fw fa-envelope"></i> Contactos</a>
+                {% if user.is_authenticated %}
+                   <a href="{% url 'contactList' %}"><i class="fa fa-fw fa-envelope"></i> Contactos</a>
+                {% else %}
+                    <a href="{% url 'contact' %}"><i class="fa fa-fw fa-envelope"></i> Contactos</a>
+                {% endif %}
                 <a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a>
                 <div class="top-right">
                     {% if user.is_authenticated %}
@@ -36,54 +40,36 @@
                 <img class="img" src="{% static "pMentHa/images/mentha.png" %}" width="80%" alt="velhotes"/>
             </figure>
             <hr class="line">
+            {% if message %}
+                <div style="text-align: center;">
+            <span>
+                {{ message }}
+            </span>
+                </div>
+            {% endif %}
         </nav>
         <main>
-            <div class="mainmenu">
-                <a class="unactive" href="{% url 'regPatient' %}">Inscrição de Paciente</a>
-                <a class="active" href="{% url 'patientoverview' %}">Avaliações</a>
-            </div>
             <div style="overflow-x:auto;">
-                <h2 class="h2_po">Tabela de Avaliações</h2>
+                <h2 class="h2_po">Contacto de Pacientes</h2>
                 <table>
                     <tr>
-                        <th>Paciente</th>
-                        <th>Rastreio</th>
-                        <th>Pré-Teste</th>
-                        <th>Monit_I</th>
-                        <th>Monit_II</th>
-                        <th>Pós Teste</th>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Data Nascimento</th>
+                        <th>Contacto</th>
+                        <th>Apagar</th>
                     </tr>
-                    {% for patient in testes %}
+                    {% for atribute in contact %}
                         <tr>
-                            <td>{{ patient.name }}</td>
-
-                            {% for testID in patient.doneTests %}
-                                <td>
-                                    <a href="">
-                                        <p style="color: #4EB4BE">Relatório</p>
-                                    </a>
-                                </td>
-                            {% endfor %}
-
-                            {% for testID in patient.nextTest %}
-                                <td>
-                                    <a href="{% url 'fazPrimeiraPergunta' testID patient.id %}">
-                                        <p style="color: green"> Iniciar Teste {{ testID }}</p>
-                                    </a>
-                                </td>
-                            {% endfor %}
-
-                            {% for testID in patient.toDoTests %}
-                                <td>
-                                    <p style="color: grey">Teste {{ testID }}</p>
-                                </td>
-                            {% endfor %}
+                            <td>{{ atribute.name }}</td>
+                            <td>{{ atribute.email }}</td>
+                            <td>{{ atribute.birth }}</td>
+                            <td>{{ atribute.contact }}</td>
+                            <td><a href="{% url 'apaga-view' atribute.id %}"><i class="far fa-trash-alt"></i></a></td>
                         </tr>
                     {% endfor %}
                 </table>
             </div>
         </main>
-        <br>
-        <footer><img class="promotores" src="{% static "pMentHa/images/promotores.png" %}"/></footer>
     </div>
 {% endblock %}

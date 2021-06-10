@@ -13,7 +13,11 @@
                         <a href="">MentHaCOG</a>
                     </div>
                 </div>
-                <a href=""><i class="fa fa-fw fa-envelope"></i> Contactos</a>
+                {% if user.is_authenticated %}
+                   <a href="{% url 'contactList' %}"><i class="fa fa-fw fa-envelope"></i> Contactos</a>
+                {% else %}
+                    <a href="{% url 'contact' %}"><i class="fa fa-fw fa-envelope"></i> Contactos</a>
+                {% endif %}
                 <a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a>
                 <div class="top-right">
                     {% if user.is_authenticated %}
@@ -52,14 +56,14 @@
                         <input class="pat" type="text" id="email" name="email">
 
                         <label class="left" for="gender">Género</label>
-                        <select id="gender" name="gender">
+                        <select class="regForm" id="gender" name="gender">
                             <option value="masculino">Masculino</option>
                             <option value="feminino">Feminino</option>
                             <option value="outro">Outro</option>
                         </select>
 
                         <label class="left" for="nacionality">Nacionalidade</label>
-                        <select id="nacionality" name="nacionality">
+                        <select class="regForm" id="nacionality" name="nacionality">
                             <option value="portugal">Portugal</option>
                             <option value="espanha">Espanha</option>
                             <option value="outro">Outro</option>

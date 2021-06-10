@@ -15,6 +15,10 @@ urlpatterns = [
     path("Report<int:testID>-<int:patientID>", views.report, name="report"),
     path("about", views.about, name="about"),
     path("contacts", views.contact, name="contact"),
+    path("contactList", views.contacts_list, name="contactList"),
+    path("testinho", views.test, name="test"),
+    path("comments", views.comments, name="comments"),
+    path("apaga-view<int:atributeID>", views.delete_contact, name="apaga-view"),
     #Django Auth
 
     path("login_", views.login_, name="login_"),

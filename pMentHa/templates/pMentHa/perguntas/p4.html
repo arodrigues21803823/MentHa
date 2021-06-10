@@ -13,11 +13,7 @@
                     <a href="">MentHaCOG</a>
                 </div>
             </div>
-            {% if user.is_authenticated %}
-                   <a href="{% url 'contactList' %}"><i class="fa fa-fw fa-envelope"></i> Contactos</a>
-                {% else %}
-                    <a href="{% url 'contact' %}"><i class="fa fa-fw fa-envelope"></i> Contactos</a>
-                {% endif %}
+            <a href=""><i class="fa fa-fw fa-envelope"></i> Contactos</a>
             <div class="top-right">
                 <div class="dropdown">
                     <button class="dropbtn">Bem vindo {{ user.username }}!</button>
@@ -30,16 +26,18 @@
         <img class="img" src="{% static "pMentHa/images/mentha.png" %}" alt="velhotes"/>
     </header>
     <div class="multiple">
-        <h2 class="categoria">{{ question.category }}</h2>
-        <form action="{% url 'fazPergunta' resolutionID question.id %}" method="POST">
+        <h2 class="categoria">cognitivo</h2>
+        <form action="" method="POST">
             {% csrf_token %}
-            <p>{{ order }}. {{ question.text }}</p>
-            {% for option in options %}
-                <label><input type="radio" name="resposta" value="{{ option }}">: {{ option.option }}</label>
-            {% endfor %}
-            <br>
-            <input class="testButton_mul" type="submit" value="Próxima Pergunta">
-            <p>{{ question.explain }}</p>
+            <div class="left-side">
+                <p>1. primeria questao multipla</p>
+                <br>
+                <label class="options"><input type="radio" name="resposta" value="nao">:Sim</label>
+                <label><input type="radio" name="resposta" value="sim">:Não</label>
+            </div>
+            <div class="right-side">
+                <input class="testButton_mul" type="submit" value="Próxima Pergunta">
+            </div>
         </form>
     </div>
 {% endblock %}

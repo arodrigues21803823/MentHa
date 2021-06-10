@@ -13,6 +13,14 @@ class Question(models.Model):
     def __str__(self):
         return f"{self.text}"
 
+class Comments(models.Model):
+    clareza = models.IntegerField()
+    pertinencia = models.IntegerField()
+    help = models.CharField(max_length=10)
+    original = models.CharField(max_length=10)
+
+    def __str__(self):
+       return f"ID:{self.id} - {self.clareza}, {self.pertinencia}, {self.help}, {self.original}"
 
 class Contact(models.Model):
     email = models.EmailField()
@@ -20,6 +28,8 @@ class Contact(models.Model):
     contact = models.IntegerField()
     birth = models.DateField()
 
+    def __str__(self):
+        return f"{self.name}"
 
 class Option(models.Model):
     question = models.ForeignKey('Question', on_delete=models.SET_NULL, null=True)
@@ -162,3 +172,15 @@ def questionsAwnsers(resolutionID, testID):
 
     print(list)
     return list
+
+def report_exists(resolutionID):
+    report = Report.objects.filter(resolution=resolutionID)
+    return report
+
+
+def resolution_exists(patientID, testID):
+    resolution = Resolution.objects.filter(patient=patientID, test=testID)
+    if resolution:
+        return True
+    else:
+        return False

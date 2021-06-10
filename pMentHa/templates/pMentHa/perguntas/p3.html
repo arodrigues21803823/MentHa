@@ -1,36 +1,37 @@
+<!-- snippet, pedaço de codigo para inserir no template -->
+{% extends "pMentHa/base.html" %}
+{% load static %}
 {% block body %}
-    <h1>Cognição</h1>
-    <br>
-    <h3>Costuma</h3>
-    <h4>Perder-se com frequência?</h4>
-        <label><input type="radio" name="lost" value="sim">: Sim</label>
-        <label><input type="radio" name="lost" value="nao">: Não</label>
-    <h4>Se sim, já alguma vez se perdeu perto de sua cas</h4>
-        <label><input type="radio" name="resposta" value="sim">: Sim</label>
-        <label><input type="radio" name="resposta" value="nao">: Não</label>
-    <h4>Esquecer-se de onde está?</h4>
-        <label><input type="radio" name="resposta" value="sim">: Sim</label>
-        <label><input type="radio" name="resposta" value="nao">: Não</label>
-    <h4> Tem dificuldade com as relações temporais
-        (situar eventos no tempo em relação uns aos outros)?</h4>
-        <label><input type="radio" name="resposta" value="sim">: Sim</label>
-        <label><input type="radio" name="resposta" value="nao">: Não</label>
-    <br>
-    <h4>Queixar-se acerca da sua memória?</h4>
-        <label><input type="radio" name="resposta" value="Sim, com alguma importancia">: Sim, com alguma importância</label>
-        <label><input type="radio" name="resposta" value="Sim, mas sem importancia">: Sim, mas sem importância</label>
-        <label><input type="radio" name="resposta" value="Sim, com problemas">: Sim, com problemas</label>
-        <label><input type="radio" name="resposta" value="nao">: Não</label>
-    <h4> Se sim, estes são frequentes?</h4>
-        <label><input type="radio" name="resposta" value="1">: 1 = esquecimentos mais ou menos frequentes</label>
-        <label><input type="radio" name="resposta" value="2">: 2 = esquecimentos muito frequentes ou amnésia</label>
-    <h4> A perda de memória interfere com as actividades diárias que era capaz de fazer há uns anos atrás?</h4>
-        <label><input type="radio" name="resposta" value="Sim">: Sim</label>
-        <label><input type="radio" name="resposta" value="Não">: Não</label>
-    <h4> Ser capaz recordar acontecimentos recentes?</h4>
-        <label><input type="radio" name="resposta" value="Sim">: Sim</label>
-        <label><input type="radio" name="resposta" value="Não">: Não</label>
-    <h4>  Ser capaz de recordar acontecimentos importantes da sua vida passada (data de nascimento, casamento, emprego)</h4>
-        <label><input type="radio" name="resposta" value="Sim">: Sim</label>
-        <label><input type="radio" name="resposta" value="Não">: Não</label>
+    <header>
+        <div class="topmenu">
+            <a href="{% url 'index' %}"><i class="fa fa-fw fa-home"></i> Home</a>
+            <div class="dropdown">
+                <button class="dropbtn"><i class="fas fa-head-side-virus"></i> Projeto MentHa</button>
+                <div class="dropdown-content">
+                    <a class="active" href="{% url 'patientoverview' %}">ProtocoloMentHa</a>
+                    <a href="{% url 'mentha-care' %}"> MentHaCare</a>
+                    <a href="">MentHaCOG</a>
+                </div>
+            </div>
+            <a href=""><i class="fa fa-fw fa-envelope"></i> Contactos</a>
+            <div class="top-right">
+                <div class="dropdown">
+                    <button class="dropbtn">Bem vindo {{ user.username }}!</button>
+                    <div class="dropdown-content2">
+                        <a href="{% url 'logout_' %}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img class="img" src="{% static "pMentHa/images/mentha.png" %}" alt="velhotes"/>
+    </header>
+    <div class="multiple">
+        <h2 class="categoria">Saude global</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <p>1. Primeira pergunta etc et eefc</p>
+            <input class="multiple_input" type="text" id="resposta" name="resposta" required>
+            <input class="testButton" type="submit" value="Próxima Pergunta">
+        </form>
+    </div>
 {% endblock %}

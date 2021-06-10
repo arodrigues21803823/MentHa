@@ -17,8 +17,13 @@
                         <a href="">MentHaCOG</a>
                     </div>
                 </div>
-                <a href="{% url 'contact' %}"><i class="fa fa-fw fa-envelope"></i> Contactos</a>
+                {% if user.is_authenticated %}
+                   <a href="{% url 'contactList' %}"><i class="fa fa-fw fa-envelope"></i> Contactos</a>
+                {% else %}
+                    <a href="{% url 'contact' %}"><i class="fa fa-fw fa-envelope"></i> Contactos</a>
+                {% endif %}
                 <a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a>
+                <a href="{% url 'comments' %}">Comentários</a>
                 <div class="top-right">
                     {% if user.is_authenticated %}
                         <div class="dropdown">
@@ -38,7 +43,7 @@
             <hr class="line">
         </nav>
         <main>
-            <a href="http://www.projetomentha.com/"><h2>Projeto MentHa</h2></a>
+            <a href="http://www.projetomentha.com/"><h2 class="h2_index">Projeto MentHa</h2></a>
             <p>O Projecto MentHA - “Mental Health and Aging”, é um empreendimento colaborativo de investigadores e
                 instituições público-privadas, sem fins lucrativos, que pretende avaliar os efeitos da reabilitação
                 neuropsicológica em pessoas mais velhas com defeito cognitivo ou de-mência leve, com e sem patologia

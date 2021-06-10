@@ -12,4 +12,4 @@ admin.site.register(Resolution)
 admin.site.register(Option)
 admin.site.register(QuestionOrder)
 admin.site.register(Contact)
-
+admin.site.register(Comments)

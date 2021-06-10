@@ -17,7 +17,7 @@
                         <a href="">MentHaCOG</a>
                     </div>
                 </div>
-                <a href=""><i class="fa fa-fw fa-envelope"></i> Contactos</a>
+                <a href="{% url 'contact' %}"><i class="fa fa-fw fa-envelope"></i> Contactos</a>
                 <a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a>
                 <div class="top-right">
                     {% if user.is_authenticated %}
@@ -62,7 +62,7 @@
                         </text>
                     </a>
 
-                    <a href="patient-overview.html">
+                    <a href="{% url 'patientoverview' %}">
                         <text id="TextElement" x="0" y="40" style="font-family:Verdana;font-size:12; visibility:hidden">
                             Teste
                             <set attributeName="visibility" attributeType="CSS" to="visible" begin="1s" dur="5s"
@@ -73,7 +73,7 @@
                         </text>
                     </a>
 
-                    <a href="mentha-care.html">
+                    <a href="{% url 'mentha-care' %}">
                         <text id="TextElement2" x="100" y="30"
                               style="font-family:Verdana;font-size:16; visibility:hidden"> MentHa Care
                             <set attributeName="visibility" attributeType="CSS" to="visible" begin="1s" dur="5s"
@@ -84,7 +84,7 @@
                         </text>
                     </a>
 
-                    <a href="about.html">
+                    <a href="{% url 'about' %}">
                         <text id="TextElement3" x="200" y="20"
                               style="font-family:Verdana;font-size:14; visibility:hidden"> Sobre o Website
                             <set attributeName="visibility" attributeType="CSS" to="visible" begin="1s" dur="5s"
@@ -95,7 +95,7 @@
                         </text>
                     </a>
 
-                    <a href="login.html">
+                    <a href="{% url 'login_' %}">
                         <text id="TextElement3" x="200" y="-70"
                               style="font-family:Impact;font-size:14; visibility:hidden"> Login
                             <set attributeName="visibility" attributeType="CSS" to="visible" begin="1s" dur="5s"
@@ -106,7 +106,7 @@
                         </text>
                     </a>
 
-                    <a href="registar.html">
+                    <a href="{% url 'register' %}">
                         <text id="TextElement3" x="100" y="-80"
                               style="font-family:Courier New;font-size:28; visibility:hidden"> Registar
                             <set attributeName="visibility" attributeType="CSS" to="visible" begin="1s" dur="5s"

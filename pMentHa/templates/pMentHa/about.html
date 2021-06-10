@@ -17,7 +17,11 @@
                         <a href="">MentHaCOG</a>
                     </div>
                 </div>
-                <a href=""><i class="fa fa-fw fa-envelope"></i> Contactos</a>
+                {% if user.is_authenticated %}
+                   <a href="{% url 'contactList' %}"><i class="fa fa-fw fa-envelope"></i> Contactos</a>
+                {% else %}
+                    <a href="{% url 'contact' %}"><i class="fa fa-fw fa-envelope"></i> Contactos</a>
+                {% endif %}
                 <a class="active" href="{% url 'about' %}"><i class="fa fa-fw fa-envelope"></i> About</a>
                 <div class="top-right">
                     {% if user.is_authenticated %}
