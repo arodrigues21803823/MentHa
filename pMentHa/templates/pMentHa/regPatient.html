@@ -19,6 +19,7 @@
                     <a href="{% url 'contact' %}"><i class="fa fa-fw fa-envelope"></i> Contactos</a>
                 {% endif %}
                 <a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a>
+                <a href="{% url 'comments' %}"><i class="fas fa-comments"></i> Comentários</a>
                 <div class="top-right">
                     {% if user.is_authenticated %}
                         <div class="dropdown">
